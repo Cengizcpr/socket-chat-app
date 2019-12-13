@@ -1,0 +1,48 @@
+<% include partials/_header %>
+
+<div class="container">
+  <div class="row">
+    <!--FORM-->
+    <div class="col-md-5 offset-md-3">
+      <div class="card">
+        <div class="card-body login-card-body">
+          
+    
+          <form action="/login" method="POST">
+            <div class="input-group mb-3">
+              <input type="email" class="form-control" name="email" placeholder="Email giriniz:">
+             
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" name="password" placeholder="Şifreyi giriniz:">
+             
+            </div> 
+            <div class="row">
+              <div class="col-8">
+               
+              </div>
+              <!-- /.col -->
+              <div class="col-4">
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Giriş Yap</button>
+              </div>
+              <!-- /.col --></form>
+            </div>
+         
+    
+          
+          <!-- /.social-auth-links -->
+          
+        
+          <p class="mb-0">
+            <a href="/add" class="text-center">Hesabınız yok mu?</a>
+          </p>
+        </div>
+        <!-- /.login-card-body -->
+      </div>
+    
+    
+    </div>
+  </div>
+</div>
+
+<% include partials/_footer%>
