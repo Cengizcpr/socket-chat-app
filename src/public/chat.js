@@ -6,7 +6,7 @@ $(function(){
     var send_message = $("#send_message")
     var send_username = $("#send_username")
     var messages_display = $("#messages_display") //gelen mesajların kullanıcı
-
+    
     //Emit message -> mesajı sokete yollar 
     send_message.click(function(){
         /*
@@ -15,6 +15,7 @@ $(function(){
         * içeriside gönderilen (data) veri message verisidir
         * message.val(), <input id="message" ...> text objesinin değerini alır
         */
+       socket.emit('change_username', {username :username.val()})
         socket.emit('new_message', {message : message.val()})
     })
 
@@ -34,13 +35,13 @@ $(function(){
     })
 
     //Emit a username -> kullanıcı adını sokete yollar
-    send_username.click(function(){
+    //send_username.click(function(){
         /*
         * <button id="change_username" ...> butonuna tıklandığı zaman
         * change_username olarak isimlendirilen bir operasyon yolluyor
         * içeriside gönderilen (data) veri username verisidir
         * username.val(), <input id="username" ...> text objesinin değerini alır
         */
-        socket.emit('change_username', {username : username.val()})
-    })
+    //    socket.emit('change_username', {username : username.val()})
+   // })
 });
