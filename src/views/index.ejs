@@ -1,4 +1,6 @@
 <% include partials/_header %>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js" crossorigin="anonymous"></script>
 <div class="container">
   <div class="row">
     <!--FORM-->
@@ -6,7 +8,7 @@
       <div class="card">
         <div class="card-body register-card-body">
     
-          <form action="/add" method="post">
+          <form action="/add" method="post" id='register'>
             <div class="input-group mb-3">
               <input type="text" class="form-control" placeholder="Adınız:" name="name">
              
@@ -26,7 +28,7 @@
               </div>
               <!-- /.col -->
               <div class="col-4">
-                <button type="submit" class="btn btn-primary btn-block btn-flat">Kayıt Ol</button>
+                <button type="submit" class="btn btn-primary btn-block btn-flat kayıt">Kayıt Ol</button>
               </div>
               <!-- /.col -->
             </div>
@@ -43,3 +45,30 @@
 
 </div>
 
+<script>
+  $( ".kayıt" ).click(function(event) {
+      event.preventDefault();
+
+      $.post("/add", $( "#register" ).serialize(), function( data ) {
+      
+          
+           $( "#register")[0].reset();
+          
+           if (data.error) {
+              
+              $(".kayıt").notify(data.message, "success");
+          
+           } else {
+          
+              $(".kayıt").notify(data.message,"error");
+            //  window.location.replace('/addbook');
+              
+              
+           }
+           
+           
+           
+       });
+       
+   });
+  </script>

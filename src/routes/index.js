@@ -7,8 +7,18 @@ router.get('/add', async (req, res) => {
 
 router.post('/add', async (req, res, next) => {
   const user = new User(req.body);
-  await user.save();
-  res.redirect('/');
+  user.save().then(resa=>{
+    if(resa){
+      res.send({
+      error: true, 
+      message: "Kayıt Yapıldı"
+       });}
+    else{ res.send({
+      error: false, 
+      message: "Kayıt Yapılmadı"
+       });}
+})
+  
 });
 
 
@@ -18,9 +28,16 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
- User.findOne({email: req.body.email}).then(res=>{
-    if(res){console.log('başarılı')}
-    else{console.log('başarısız')}
+ User.findOne({email: req.body.email}).then(resa=>{
+    if(resa){
+      res.send({
+        error: true, 
+        message: resa.email
+         });}
+    else{ res.send({
+      error: false, 
+      message: "Kullacı adı veya şifre yanlış"
+       });}
 })
   
 });
