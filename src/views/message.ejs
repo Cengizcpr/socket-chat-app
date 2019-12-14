@@ -1,9 +1,9 @@
-
- 
 <% include partials/_header %>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js" crossorigin="anonymous"></script>
-
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="chat.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
 
 <div class="container">
   <div class="row">
@@ -13,9 +13,9 @@
         <div class="card-body login-card-body">
           
     
-          <form action="/login" method="POST" id="users">
+          <form id = "user">
             <div class="input-group mb-3">
-              <input type="email" class="form-control"   name="email" placeholder="Email giriniz:">
+              <input type="text" class="form-control"   name="emails" placeholder=<%= user %>>
              
             </div>
             <div class="input-group mb-3">
@@ -38,9 +38,7 @@
           <!-- /.social-auth-links -->
           
        
-          <p class="mb-0">
-            <a href="/add" class="text-center" >Hesabınız yok mu?</a>
-          </p>
+          
         </div>
         <!-- /.login-card-body -->
       </div>
@@ -49,31 +47,5 @@
     </div>
   </div>
    
-  
+ 
 <% include partials/_footer%>
-<script>
-  $( ".ekle" ).click(function(event) {
-      event.preventDefault();
-      $.post("/login", $( "#users" ).serialize(), function( data ) {
-        $("#username").html("");
-          
-           $( "#users")[0].reset();
-          
-           if (data.error) {
-              
-           window.location.replace('/message')
-          
-           } else {
-          
-              $(".ekle").notify(data.message,"error");
-            //  window.location.replace('/addbook');
-              
-              
-           }
-           
-           
-           
-       });
-       
-   });
-  </script>
