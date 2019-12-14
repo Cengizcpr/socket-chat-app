@@ -1,9 +1,8 @@
 <% include partials/_header %>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js" crossorigin="anonymous"></script>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="chat.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+
 
 <div class="container">
   <div class="row">
@@ -15,11 +14,12 @@
     
           <form id = "user">
             <div class="input-group mb-3">
-              <input type="text" class="form-control"   name="emails" placeholder=<%= user %>>
-             
+              <input type="text" class="form-control"   id="username" placeholder=<%= user %>>
+              <button id="send_username" type="button">Kullanıcı Adı Değiştir</button>
+
             </div>
             <div class="input-group mb-3">
-              <input type="password" class="form-control" name="password" placeholder="Şifreyi giriniz:">
+              <input id="message" type="text" class="form-control"  placeholder="Mesajı giriniz:">
              
             </div> 
             <div class="row">
@@ -28,8 +28,11 @@
               </div>
               <!-- /.col -->
               <div class="col-4">
-                <button type="submit" class="btn btn-primary btn-block btn-flat ekle">Giriş Yap</button>
+                <button type="button" id="send_message" class="btn btn-primary btn-block btn-flat ekle">Gönder</button>
               </div>
+              <section id="messages_display">
+                <!--gelen mesajlar buraya eklenecek-->
+              </section>
               <!-- /.col --></form>
             </div>
          
@@ -47,5 +50,6 @@
     </div>
   </div>
    
- 
+ <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="chat.js"></script>
 <% include partials/_footer%>
