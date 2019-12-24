@@ -13,14 +13,26 @@
           
     
           <form id = "user">
+             
             <div class="input-group mb-3">
-              <input type="text" class="form-control"  id="username"  value=<%= user %>>
+              
+              <input type="text" class="form-control"  id="username" disabled value=<%= user %> >
 
             </div>
             <div class="input-group mb-3">
-              <input id="message" type="text" class="form-control"  placeholder="Mesajı giriniz:">
+              <input id="message"  type="text" class="form-control"  placeholder="Mesajı giriniz:">
              
             </div> 
+            <div class="input-group mb-3">
+
+            <select required class="form-control" id="category" name="category" placeholder="Category"  >
+
+              <option>Şifreleme Algoritmaları</option>
+              <option id="caesar" value="caesar">Caesar</option>
+              <option id="column" value="column">Sütun</option>
+              <option  id="polybius" value="polybius">Polybius</option>
+              <option  id="çit" value="çit">Çit</option>
+              </select></div>
             <div class="row">
               <div class="col-8">
                
