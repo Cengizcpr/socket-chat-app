@@ -1,9 +1,8 @@
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
-const mongoose = require('mongoose');
-
 const app = express();
+const mongoose = require('mongoose');
 
 // connection to db
 mongoose.connect('mongodb://localhost/crud-mongo')

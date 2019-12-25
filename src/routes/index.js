@@ -33,12 +33,13 @@ router.get('/', async (req, res) => {
 router.post('/login', async (req, res) => {
  User.findOne({email: req.body.email}).then(resa=>{
     if(resa){
+     
       
-
        res.send({
         error: true, 
         message: resa.email
          });
+      
         
     }
     else{ res.send({

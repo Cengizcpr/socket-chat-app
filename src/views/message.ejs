@@ -20,7 +20,7 @@
 
             </div>
             <div class="input-group mb-3">
-              <input id="message"  type="text" class="form-control"  placeholder="Mesajı giriniz:">
+              <input id="message" name='message' type="text" class="form-control"  placeholder="Mesajı giriniz:">
              
             </div> 
             <div class="input-group mb-3">
@@ -32,13 +32,19 @@
               <option id="column" value="column">Sütun</option>
               <option  id="polybius" value="polybius">Polybius</option>
               <option  id="çit" value="çit">Çit</option>
+              <option id="vigenere" value="vigenere">Vigenere</option>
               </select></div>
+              <div class="input-group mb-3">
+                  <section id="messages_display2">  
+                    </section> 
+              </div>
             <div class="row">
               <div class="col-8">
-               
+                   
               </div>
               <!-- /.col -->
               <div class="col-4">
+                              <button type="button" id="decoded_message" class="btn btn-warning btn-block btn-flat ekle">Çözümle</button>
                 <button type="button" id="send_message" class="btn btn-primary btn-block btn-flat ekle">Gönder</button>
               </div>
               <section id="messages_display">
